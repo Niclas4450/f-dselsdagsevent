@@ -4,17 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventnavn</title>
-  <link rel="stylesheet" href="./starter.css">
+  <title>fødselsdags Event | Forside</title>
+
+
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./starter.css">
 </head>
 
-<body>
-  <header class="site-header">
+<body class="pirat-tema">
+
+
+  <header class="site-header pirat-trae">
     <div class="header-content">
-      <a class="site-logo" href="./">Eventnavn</a>
+      <a class="site-logo" href="./">
+        <span class="gul-tekst">BIRTHDAY</span> EVENT
+      </a>
       <nav class="site-nav">
-        <button>Menu</button>
+        <button popovertarget="menu">Menu</button>
         <ul class="menu" id="menu" popover>
           <li><a href="./" aria-current="page">Forside</a></li>
           <li><a href="./svg.html">Interaktiv SVG</a></li>
@@ -24,15 +30,96 @@
     </div>
   </header>
 
-  <main></main>
 
-  <footer class="site-footer">
+  <main class="pirat-main">
+
+    <section class="hero-pirat">
+      <div class="hero-indhold">
+        <div class="pergament-skilt">
+          <h1>Lad os fejre det <span class="roed-skrift">sammen!</span></h1>
+        </div>
+        <p class="hero-undertitel">
+          En uforglemmelig fødselsdag fyldt med sjove aktiviteter, lækker mad og eventyr!
+        </p>
+        <a href="./form.html" class="knap-trae">Tilmeld dig nu &rsaquo;</a>
+      </div>
+    </section>
+
+    <section class="kort-sektion">
+      <div class="grid_3">
+
+        <button class="pirat-kort-knap" popovertarget="popup-musik">
+          <article class="pirat-kort">
+            <img src="musik.png" alt="Musik og fest">
+            <div class="kort-skilt">
+              <h3>Musik &amp; Fest</h3>
+              <p>Klik for at læse mere</p>
+            </div>
+          </article>
+        </button>
+
+
+        <button class="pirat-kort-knap" popovertarget="popup-mad">
+          <article class="pirat-kort">
+            <img src="mad.png" alt="Mad og drikke">
+            <div class="kort-skilt">
+              <h3>Mad &amp; Drikke</h3>
+              <p>Klik for at læse mere</p>
+            </div>
+          </article>
+        </button>
+
+        <!-- Kort 3: Aktiviteter -->
+        <button class="pirat-kort-knap" popovertarget="popup-aktiviteter">
+          <article class="pirat-kort">
+            <img src="aktiviteter.png" alt="Aktiviteter">
+            <div class="kort-skilt">
+              <h3>Aktiviteter</h3>
+              <p>Klik for at læse mere</p>
+            </div>
+          </article>
+        </button>
+      </div>
+
+      <!-- DE TRE POPUP-BOKSE (SKJULT INDTIL MAN KLIKKER) -->
+      <div id="popup-musik" class="pirat-popup" popover>
+        <h3>Musik &amp; Fest</h3>
+        <p>Vi skruer helt op for pirat-stemningen med god musik, dans og hygge hele aftenen lang!</p>
+        <button class="knap-roed" popovertarget="popup-musik" popovertargetaction="hide">Luk</button>
+      </div>
+
+      <div id="popup-mad" class="pirat-popup" popover>
+        <h3>Mad &amp; Drikke</h3>
+        <p>Der serveres lækker pirat-menu med pizza, burger eller lasagne samt kolde drikkevarer til alle.</p>
+        <button class="knap-roed" popovertarget="popup-mad" popovertargetaction="hide">Luk</button>
+      </div>
+
+      <div id="popup-aktiviteter" class="pirat-popup" popover>
+        <h3>Sjove Aktiviteter</h3>
+        <p>Gør jer klar til skattejagt, bueskydning og spændende konkurrencer med præmier i skattekisten!</p>
+        <button class="knap-roed" popovertarget="popup-aktiviteter" popovertargetaction="hide">Luk</button>
+      </div>
+    </section>
+
+
+
+    <section class="skattekort-sektion">
+      <div class="skattekort-banner">
+        <h2>Skal du med?</h2>
+        <p>Tilmeld dig vores fødselsdagsevent i dag!</p>
+        <a href="./form.html" class="knap-roed">Tilmeld dig her</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. FOOTER I TRÆ -->
+  <footer class="site-footer pirat-trae">
     <div class="footer-content">
-      <p>Eventnavn</p>
-      <p>Footer</p>
+      <p><span class="gul-tekst">FØDSELSDAGS</span> EVENT</p>
+
     </div>
   </footer>
-  <script src="./script.js"></script>
+
 </body>
 
 </html>

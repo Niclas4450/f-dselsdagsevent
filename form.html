@@ -10,38 +10,103 @@
 </head>
 
 <body>
-  <header class="site-header">
+  <header class="site-header pirat-trae">
     <div class="header-content">
-      <a class="site-logo" href="./">Eventnavn</a>
+      <a class="site-logo" href="./">
+        <span class="gul-tekst">FØDSELSDAGS</span> EVENT
+      </a>
       <nav class="site-nav">
-        <button>Menu</button>
+        <button popovertarget="menu">Menu</button>
         <ul class="menu" id="menu" popover>
-          <li><a href="./">Forside</a></li>
+          <li><a href="./" aria-current="page">Forside</a></li>
           <li><a href="./svg.html">Interaktiv SVG</a></li>
-          <li><a href="./form.html" aria-current="page">Formular</a></li>
+          <li><a href="./form.html">Formular</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+
   <main>
     <section class="form-page">
       <header class="form-intro">
         <h1>Formular</h1>
-        <p>Lav en formular, der sender brugeren videre til opsamlingssiden.</p>
       </header>
+      <form action="./opsamling.html" method="get">
+        <label for="nickname">Navn</label>
+        <input id="nickname" name="nickname" type="text">
 
-      <form class="form-placeholder" action="./opsamling.html"></form>
+
+        <fieldset>
+          <legend>Hvor gammel er du</legend>
+          <label for="alder">
+            <input id="alder" type="number" name="alder" value="">
+            år
+          </label>
+
+        </fieldset>
+        <fieldset>
+          <legend>Kommer du?</legend>
+          <label for="deltag">
+            <input id="deltag" type="radio" name="deltag" value="ja" checked>
+            Ja
+          </label>
+          <label for="deltag">
+            <input id="deltag" type="radio" name="deltag" value="nej">
+            Nej
+          </label>
+
+        </fieldset>
+        <div class="title">hvad kunne du tænke dig at drikke</div>
+
+        <label>
+          <input type="checkbox" name="drikke" value="vand" />
+          vand
+        </label>
+
+        <label>
+          <input type="checkbox" name="drikke" value="juice" />
+          Juice
+        </label>
+        <label>
+          <input type="checkbox" name="drikke" value="saftevand">
+          saftevand
+        </label>
+
+        <label>
+          <input type="checkbox" name="drikke" value="sodavand" />
+          sodavand
+        </label>
+        </div>
+        <label for="food">Hvad vil du gerne spise?</label>
+
+        <select id="food" name="mad">
+          <option value="">Vælg mad</option>
+          <option value="lasagne">Lasagne</option>
+          <option value="burger">Burger</option>
+          <option value="pizza">Pizza</option>
+        </select>
+
+        <label for="hype">Hvor meget glæder du dig?</label>
+        <input id="hype" name="hype" type="range">
+        <div>
+          <button type="submit">send tilmelding</button>
+        </div>
+
+
+      </form>
+
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer pirat-trae">
     <div class="footer-content">
-      <p>Eventnavn</p>
-      <p>Footer</p>
+      <p><span class="gul-tekst">FØDSELSDAGS</span> EVENT</p>
+
     </div>
   </footer>
   <script src="./script.js"></script>
+  <script src="/opsamling.js"></script>
 </body>
 
 </html>

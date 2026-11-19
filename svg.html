@@ -10,56 +10,79 @@
 </head>
 
 <body>
-  <header class="site-header">
+  <header class="site-header pirat-trae">
     <div class="header-content">
-      <a class="site-logo" href="./">Eventnavn</a>
+      <a class="site-logo" href="./">
+        <span class="gul-tekst">FØDSELSDAGS</span> EVENT
+      </a>
       <nav class="site-nav">
-        <button>Menu</button>
+        <button popovertarget="menu">Menu</button>
         <ul class="menu" id="menu" popover>
-          <li><a href="./">Forside</a></li>
-          <li><a href="./svg.html" aria-current="page">Interaktiv SVG</a></li>
+          <li><a href="./" aria-current="page">Forside</a></li>
+          <li><a href="./svg.html">Interaktiv SVG</a></li>
           <li><a href="./form.html">Formular</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+
   <main>
     <section class="svg-page">
       <header class="svg-intro">
         <h1>Interaktiv SVG</h1>
-        <p>Indsæt din egen SVG og forbind den med punkterne nedenfor.</p>
+
       </header>
 
       <section class="svg-layout">
-        <div class="svg-placeholder"></div>
+        <svg class="svg-kort" viewBox="0 0 1900 1100" aria-hidden="true">
+          <use class="baggrund" href="skattekort.svg#baggrund"></use>
+          <use class="steder" href="skattekort.svg#steder"></use>
+          <g class="figur">
+            <use class="krop" href="skattekort.svg#krop"></use>
+            <use class="ventreben" href="skattekort.svg#ventreben"></use>
+            <use class="hojreben" href="skattekort.svg#hojreben"></use>
+          </g>
+        </svg>
+        <div>
+          <p id="besked" aria-live="polite">Figuren står ved indgangen.</p>
+          <details class="accordion-item" id="details-start" name="steder" data-position="start">
+            <summary>Start</summary>
+            <p>Velkommen til skattejagten! Du starter ved indgangen. Følg kortet, og undersøg de forskellige steder for
+              at finde den skjulte skat.</p>
+          </details>
+          <details class="accordion-item" id="details-hus" name="steder" data-position="hus">
+            <summary>hus</summary>
+            <p>Det gule hus er det første sted, du kan undersøge. Måske gemmer der sig et spor i nærheden af huset?</p>
+          </details>
+          <details class="accordion-item" id="details-pav" name="steder" data-position="pav">
+            <summary>pavillion</summary>
+            <p>Pavillonen står midt i området. Kig godt efter, måske er der efterladt et spor under pavillonen.</p>
+          </details>
+          <details class="accordion-item" id="details-springvand" name="steder" data-position="springvand">
+            <summary>springvand</summary>
+            <p>Springvandet gemmer på en ledetråd. Vandet kan måske afsløre, hvor du skal lede næste gang.</p>
+          </details>
+          <details class="accordion-item" id="details-skov" name="steder" data-position="skov">
+            <summary>skov</summary>
+            <p>Gå på opdagelse i skoven. Mellem træerne kan der gemme sig vigtige spor, som hjælper dig videre.</p>
+          </details>
+          <details class="accordion-item" id="details-skat" name="steder" data-position="skat">
+            <summary>Skatten</summary>
+            <p>Tillykke! Du har fundet skatten. Du har gennemført skattejagten og løst alle opgaverne!</p>
+          </details>
+        </div>
 
-        <article class="panel">
-          <h2>Udforsk eventet</h2>
-          <div class="accordion">
-            <!-- TODO: Lav om til details/summary -->
-            <div class="accordion-item">
-              <h3>Punkt 1</h3>
-              <p>Beskriv første område, aktivitet eller del af dit event.</p>
-            </div>
-            <div class="accordion-item">
-              <h3>Punkt 2</h3>
-              <p>Beskriv andet område, aktivitet eller del af dit event.</p>
-            </div>
-            <div class="accordion-item">
-              <h3>Punkt 3</h3>
-              <p>Beskriv tredje område, aktivitet eller del af dit event.</p>
-            </div>
-          </div>
+
         </article>
       </section>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer pirat-trae">
     <div class="footer-content">
-      <p>Eventnavn</p>
-      <p>Footer</p>
+      <p><span class="gul-tekst">FØDSELSDAGS</span> EVENT</p>
+
     </div>
   </footer>
   <script src="./script.js"></script>

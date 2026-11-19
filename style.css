@@ -28,13 +28,24 @@ h2,
 h3,
 p {
   margin: 0;
+  padding-left: 10px;
 }
-
+h1 {
+  font-size: 3rem;
+}
+/*p,
+summary {
+  font-size: 2rem;
+}*/
+.menu {
+  font-size: 2rem;
+}
 main {
   display: grid;
   grid-template-columns: inherit;
   grid-column: 1 / -1;
   align-content: start;
+  background-color: #f5ebd6;
 }
 
 main > * {
@@ -85,7 +96,7 @@ main > * {
   color: var(--color-muted);
 }
 
-.opsamling-page {
+/*.opsamling-page {
   display: grid;
   gap: var(--space-2);
   align-items: start;
@@ -93,7 +104,7 @@ main > * {
   @media (width > 800px) {
     grid-template-columns: minmax(0, 44ch) minmax(20rem, 1fr);
   }
-}
+}*/
 
 .opsamling-intro {
   display: grid;
@@ -138,12 +149,6 @@ main > * {
   gap: var(--space-1);
 }
 
-.site-logo {
-  color: inherit;
-  font-weight: 700;
-  text-decoration: none;
-}
-
 .footer-content {
   padding-block: var(--space-1);
   display: flex;
@@ -162,43 +167,45 @@ main > * {
 }
 
 .site-nav button {
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  @media (width > 600px) {
-    display: none;
-  }
+  padding: 0.5rem 1rem;
+  border: 2px solid #9c663d;
+  background: #e6cfa7;
+  color: #24150e;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+
+  anchor-name: --menu-knap;
+}
+
+.site-nav button:popover-open {
+  transition: 10s;
 }
 
 .menu {
   margin: 0;
   padding: var(--space-1);
   list-style: none;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  @media (width > 600px) {
-    display: flex;
-    gap: var(--space-1);
-    padding: 0;
-    border: none;
-    background: none;
-    position: static;
-  }
+  border: 2px solid #9c663d;
+  background: #e6cfa7;
+  position: fixed;
+  position-anchor: --menu-knap;
+  inset: auto;
+  top: anchor(bottom);
+  right: anchor(right);
+  margin-top: var(--space-05);
+  min-width: 1rem;
+  padding: var(--space-05);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
 }
 
 .menu a {
-  display: block;
-  padding: 0.4rem 0;
-  color: inherit;
-  text-decoration: none;
-  border-bottom: 2px solid #0000;
-}
-
-.menu a[aria-current="page"] {
-  border-bottom-color: var(--color-border);
-}
-
-/* Flader */
+  font-size: 1.1rem !important;
+  color: #24150e !important;
+  font-weight: 700;
+  padding: 0.35rem 0;
+  border-bottom: 3px solid black;
+} /* Flader */
 .panel,
 .svg-placeholder,
 .form-placeholder,
@@ -217,6 +224,73 @@ main > * {
 .opsamling-placeholder {
   min-height: -webkit-fill-available;
   min-height: stretch;
+}
+.kort {
+  max-width: 440px;
+  margin-inline: auto;
+}
+.kort > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.svg-kort {
+  pointer-events: none;
+  --x: 0%;
+  --y: 0%;
+}
+.figur {
+  transform-box: view-box;
+  translate: var(--x) var(--y);
+  transition:
+    translate 5s,
+    scale 0.5s;
+}
+.svg-kort[data-position="start"] {
+  --x: 0px;
+  --y: 0px;
+}
+.svg-kort[data-position="hus"] {
+  --x: -735px;
+  --y: -0px;
+}
+.svg-kort[data-position="pav"] {
+  --x: -795px;
+  --y: -600px;
+}
+.svg-kort[data-position="springvand"] {
+  --x: -30px;
+  --y: -690px;
+}
+.svg-kort[data-position="skov"] {
+  --x: 465px;
+  --y: -640px;
+}
+.svg-kort[data-position="skat"] {
+  --x: 660px;
+  --y: -20px;
+}
+.gaar .ventreben {
+  animation: loft 0.4s ease-in-out infinite alternate;
+}
+.gaar .hojreben {
+  animation: loft 0.4s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes loft {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 2px -4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gaar .ventreben,
+  .gaar .hojreben {
+    animation: none;
+  }
 }
 
 .form-placeholder {
@@ -246,8 +320,375 @@ main > * {
   justify-self: start;
   display: inline-block;
   padding: 0.5rem 0.8rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border: 2px solid #9c663d;
+  background: #e6cfa7;
   color: inherit;
   text-decoration: none;
+}
+section {
+  border: 2px solid gold;
+  margin-bottom: var(--space-2);
+  margin-top: var(--space-2);
+}
+details {
+  outline: 2px solid #000;
+  margin: 0 20px;
+  padding: 10px 15px;
+}
+details ul {
+  list-style-position: inside;
+  padding-left: 5px;
+}
+[hidden] {
+  display: none !important;
+}
+.invitation-kort {
+  /* Sæt ballonbilledet ind som baggrund */
+  background-image: url("./fødselsdagskort.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+
+  /* Giv kortet størrelse og centrer det på siden */
+  max-width: 750px;
+  min-height: 950px;
+  margin: 2rem auto;
+
+  /* VIGTIGT: Skubber indholdet ind i det hvide område, væk fra ballonerne */
+  padding: 130px 75px 150px 75px;
+
+  /* Centrer teksten og gør det pænt */
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  color: #222222;
+}
+
+.invitation-kort h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.info-liste p {
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
+}
+
+/* Sørger for at mad- og drikkebillederne har en pæn størrelse og står side om side */
+.valg-billeder {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.valg-billeder img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #eeeeee;
+}
+.grid_2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.grid_2_1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  align-items: start;
+}
+
+/* --- PIRAT FORSIDE TEMA (SKAL STÅ ALLER NEDERST I STYLE.CSS) --- */
+.pirat-tema {
+  background-color: #1c110a;
+  color: #f5ebd6;
+  font-family: "Lora", serif;
+}
+
+.pirat-tema h1,
+.pirat-tema h2,
+.pirat-tema h3,
+.pirat-tema .site-logo {
+  font-family: "Cinzel Decorative", serif;
+}
+
+/* Fjerner den brune baggrund og gule test-ramme fra resten af style.css */
+.pirat-main {
+  background-color: #24150e;
+  display: block;
+}
+
+.pirat-main section {
+  border: none;
+  margin: 0;
+  padding-block: 3rem;
+}
+
+/* Ren CSS træ-effekt til både header, footer og kort-skilte */
+.site-header.pirat-trae,
+.site-footer.pirat-trae,
+.kort-skilt {
+  background-color: #2c1810 !important;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.65)),
+    repeating-linear-gradient(
+      90deg,
+      #381f14 0px,
+      #381f14 14px,
+      #2a160e 14px,
+      #2a160e 28px,
+      #331b11 28px,
+      #331b11 45px
+    ) !important;
+  border-top: 2px solid #59331f !important;
+  border-bottom: 3px solid #140a06 !important;
+  color: #f5ebd6 !important;
+}
+
+.gul-tekst {
+  color: #f2b749;
+}
+
+/* Navigation på linje */
+.pirat-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pirat-menu a {
+  color: #f5ebd6;
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+}
+
+.pirat-menu a[aria-current="page"] {
+  border-bottom: 3px solid #f2b749;
+  color: #f2b749;
+}
+
+/* Hero-sektion i rene solnedgangsfarver */
+.hero-pirat {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(20, 10, 5, 0.75) 30%,
+      rgba(20, 10, 5, 0.1) 100%
+    ),
+    url("./baggrundsbillede.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  padding-inline: 5%;
+}
+
+.hero-indhold {
+  max-width: 550px;
+}
+
+/* Pergament-look i rene CSS-farver */
+.pergament-skilt,
+.skattekort-banner {
+  background-color: #e6cfa7;
+  background-image: radial-gradient(circle, #f2e1c2 45%, #d4b483 100%);
+  border: 3px solid #b5925d;
+  color: #24150e;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.7),
+    inset 0 0 25px rgba(139, 90, 43, 0.4);
+}
+
+.pergament-skilt {
+  padding: 2rem 2.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  transform: rotate(-1.5deg);
+}
+
+.pergament-skilt h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  padding-left: 0;
+}
+
+.roed-skrift {
+  display: block;
+  color: #8c1d18;
+  font-size: 3.4rem;
+}
+
+.hero-undertitel {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Træ-knap i toppen */
+.knap-trae {
+  display: inline-block;
+  background: linear-gradient(to bottom, #6e4226, #422514);
+  color: #f5ebd6;
+  border: 2px solid #9c663d;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* 3-kolonne grid til kortene */
+.kort-sektion {
+  max-width: 1100px;
+  margin-inline: auto !important;
+  padding-inline: 1rem;
+}
+
+.grid_3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.pirat-kort {
+  background-color: #e6cfa7;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.pirat-kort img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+.kort-skilt {
+  padding: 1rem;
+  margin-top: -15px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.kort-skilt h3 {
+  color: #f2b749;
+  font-size: 1.3rem;
+  padding-left: 0;
+}
+
+.kort-skilt p {
+  font-size: 0.95rem;
+  padding-left: 0;
+  margin-top: 0.3rem;
+}
+
+/* Skattekort-banner nederst */
+.skattekort-sektion {
+  max-width: 1100px;
+  margin-inline: auto !important;
+  padding-inline: 1rem;
+}
+
+.skattekort-banner {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+}
+
+.skattekort-banner h2 {
+  font-size: 2.5rem;
+  padding-left: 0;
+}
+
+.skattekort-banner p {
+  font-size: 1.2rem;
+  margin-block: 0.8rem 1.5rem;
+  padding-left: 0;
+}
+
+/* Rød knap på skattekortet */
+.knap-roed {
+  display: inline-block;
+  background: linear-gradient(to bottom, #a8241e, #6e120e);
+  color: #ffffff;
+  border: 2px solid #d44942;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Mobilvisning */
+@media (max-width: 800px) {
+  .grid_3 {
+    grid-template-columns: 1fr;
+  }
+}
+/* Gør kort-knapperne usynlige som knap, så dit kort-design bevares */
+.pirat-kort-knap {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+/* Løfter kortet en smule, når musen holdes hen over */
+.pirat-kort-knap:hover {
+  transform: translateY(-6px);
+}
+
+/* Selve popup-boksen i pergament-stil */
+.pirat-popup {
+  background-color: #e6cfa7;
+  background-image: radial-gradient(circle, #f2e1c2 45%, #d4b483 100%);
+  border: 3px solid #9c663d;
+  border-radius: 10px;
+  color: #24150e;
+  padding: 2rem;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+  margin: auto;
+}
+
+/* Gør baggrunden bag popuppen mørk og sløret, når den er åben */
+.pirat-popup::backdrop {
+  background: rgba(15, 8, 4, 0.75);
+  backdrop-filter: blur(3px);
+}
+
+.pirat-popup h3 {
+  color: #8c1d18;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+}
+
+.pirat-popup p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  padding-left: 0;
 }

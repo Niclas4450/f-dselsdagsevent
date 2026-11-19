@@ -10,41 +10,78 @@
 </head>
 
 <body>
-  <header class="site-header">
+  <header class="site-header pirat-trae">
     <div class="header-content">
-      <a class="site-logo" href="./">Eventnavn</a>
+      <a class="site-logo" href="./">
+        <span class="gul-tekst">FØDSELSDAGS</span> EVENT
+      </a>
       <nav class="site-nav">
-        <button>Menu</button>
+        <button popovertarget="menu">Menu</button>
         <ul class="menu" id="menu" popover>
-          <li><a href="./">Forside</a></li>
+          <li><a href="./" aria-current="page">Forside</a></li>
           <li><a href="./svg.html">Interaktiv SVG</a></li>
-          <li><a href="./form.html" aria-current="page">Formular</a></li>
+          <li><a href="./form.html">Formular</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+
   <main>
     <section class="opsamling-page">
       <div class="opsamling-intro">
         <h1>Opsamling</h1>
-        <p>Vis brugerens valg som et pass, en invitation eller noget andet, der passer til dit event.</p>
         <div class="actions">
           <a class="button" href="./form.html">Tilbage til formular</a>
         </div>
       </div>
+      <div class="invitation-kort">
+        <h2>din invitation</h2>
+        <div class="info-liste">
+          <div class="navn">
+            <p><strong>Navn:</strong><span class="nickname"></span></p>
+          </div>
+          <div class="tal">
+            <p><strong>Alder:</strong><span class="alder"></span></p>
+          </div>
+          <div class="deltagelse">
+            <p><strong>Deltager du:</strong> <span class="deltag"></span></p>
+          </div>
+          <div class="hype-boks">
+            <p><strong>Hvor meget du glæder dig fra 1-100%</strong> <span class="hype"></span>%</p>
+          </div>
+        </div>
 
-      <article class="opsamling-placeholder"></article>
+        <div class="grid_2">
+          <div>
+            <h2>Dine drikkevarer</h2>
+            <p class="valgte-drikke-tekst"></p>
+            <div class="grid_2_1">
+              <img id="vand" src="vand.jpg" alt="Vand">
+              <img id="juice" src="juice.jpg" alt="Juice">
+              <img id="saftevand" src="saft.jpg" alt="Saftevand">
+              <img id="sodavand" src="soda.jpg" alt="Sodavand">
+            </div>
+          </div>
+          <div>
+            <h2>Dit madvalg</h2>
+            <p class="valgt-mad-tekst"></p>
+            <img id="lasagne" src="Lasagne.webp">
+            <img id="burger" src="burger.webp">
+            <img id="pizza" src="pizza.webp">
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-
-  <footer class="site-footer">
+  <footer class="site-footer pirat-trae">
     <div class="footer-content">
-      <p>Eventnavn</p>
-      <p>Footer</p>
+      <p><span class="gul-tekst">FØDSELSDAGS</span> EVENT</p>
+
     </div>
   </footer>
-  <script src="./script.js"></script>
+  <script src="./opsamling.js"></script>
+
 </body>
 
 </html>
